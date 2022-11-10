@@ -1,0 +1,573 @@
+/*************************
+ * 
+ *
+ * 1 - LOADER
+ * 2 - MENU
+ * 4 - SCROLL-TOP
+ * 5 - CONTAINER
+ *     5-1 - ABOUT
+ *     5-2 - SKILLS
+ *     5-4 - EXPERIENCE
+ *     5-5 - PORTFOLIO
+ *************************/
+
+/****  COMMON SECTIONS STYLE ****/
+
+* {
+  letter-spacing: 0.5px;
+  padding: 0;
+  margin: 0;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.section {
+  margin-bottom: 75px;
+}
+
+.section-about,
+.section-skills .professional-skills,
+.section-skills .additional-skills,
+.section-education .education-content,
+.section-experience .icon-experience,
+.section-experience .experience-content,
+.section-portfolio .item-portfolio,
+.section-pricing .pricing-content,
+.section-testimonials .swiper-slide,
+.section-blog .blog-content,
+.section-contact-us .form-content,
+.section-contact-us .info-content {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15), 0 2px 10px 0 rgba(0, 0, 0, 0.11);
+}
+
+.section .header-section {
+  text-align: center;
+}
+
+.section h2 {
+  display: inline-block;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.section .h2-section {
+  margin-bottom: 56px;
+}
+
+.section h2,
+.section-pricing .pricing-price .number {
+  font-size: 40px;
+}
+
+.menu .logo {
+  font-size: 38px;
+}
+
+.section h3 {
+  font-size: 20px;
+}
+
+.section p,
+.section h4,
+.section-about .available i,
+.section-about .available span,
+.theme-option h4,
+.section-contact-us input[type="submit"] {
+  font-size: 16px;
+}
+
+.section-about .li-social-links a,
+.section-pricing .most-populaire span,
+.section-blog .read-more,
+.section-blog .load-more span,
+.section-blog h4,
+.section-blog .blog-detail .ul-detail,
+.single-blog .populaire-posts ul {
+  font-size: 14px;
+}
+
+.section h2,
+.section-about .download-resume {
+  font-family: "Oswald", sans-serif;
+}
+
+.section p {
+  line-height: 28px;
+}
+
+/**** CONTENT ****/
+
+.content {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: 0 auto;
+}
+
+/**** 1 - LOADER ****/
+
+.loading-overlay {
+  padding-top: 13%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+}
+
+.spinner {
+  margin: 100px auto;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%,
+  40%,
+  100% {
+    -webkit-transform: scaleY(0.4);
+  }
+  20% {
+    -webkit-transform: scaleY(1);
+  }
+}
+
+@keyframes sk-stretchdelay {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+  }
+}
+
+/****  2 - MENU ****/
+
+.menu {
+  position: fixed;
+  left: -160px;
+  padding-top: 30px;
+  width: 160px;
+  height: 100%;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.08);
+  transition: left 0.6s;
+  z-index: 20;
+}
+
+.menu .logo {
+  display: inline-block;
+  padding: 9px 15px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.menu .menu-content {
+  position: relative;
+  height: calc(100% - 127px);
+  overflow: auto;
+}
+
+.menu a {
+  display: block;
+  height: 47px;
+  line-height: 47px;
+  font-weight: bold;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.menu .open-menu {
+  position: absolute;
+  top: 0;
+  left: 160px;
+  width: 30px;
+  height: 30px;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+/****  4 - SCROLL-TOP ****/
+
+.scroll-top {
+  display: none;
+  position: fixed;
+  width: 45px;
+  height: 45px;
+  right: 45px;
+  bottom: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 45px;
+  opacity: 0.7;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s;
+}
+
+.scroll-top:hover {
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+/****  5-1 - ABOUT ****/
+
+.section-about {
+  margin-top: 80px;
+  margin-bottom: 75px;
+}
+
+.section-about .profile {
+  padding: 33px 33px 22px;
+}
+
+.section-about .photo-profile {
+  margin-bottom: 20px;
+}
+
+.section-about .photo-profile img {
+  display: block;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.section-about .download-resume {
+  margin-bottom: 25px;
+  padding: 17px 5px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s;
+}
+
+.section-about .download-resume:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.section-about .text-download {
+  padding-left: 8px;
+}
+
+.section-about .available {
+  text-align: center;
+}
+
+.section-about h2 {
+  padding-bottom: 4px;
+}
+
+.section-about h3 {
+  padding-bottom: 20px;
+}
+
+.section-about p {
+  padding-bottom: 27px;
+}
+
+.section-about .li-info {
+  padding-bottom: 10px;
+}
+
+.section-about .title-info {
+  display: inline-block;
+  width: 80px;
+}
+
+.section-about .title-links {
+  display: inline-block;
+}
+
+.section-about .ul-social-links {
+  margin-top: 10px;
+}
+
+.section-about .li-social-links {
+  display: inline-block;
+  margin: 0 5px 12px;
+}
+
+.section-about .li-social-links a {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.active-link:link,
+.active-link:visited {
+  font-weight: bold;
+  color: #0487cc;
+  border-bottom: 2px solid #0487cc;
+}
+
+.active-link:hover,
+.active-link:active {
+  color: #00adb5;
+}
+
+/****  5-2 - SKILLS ****/
+
+.section-skills .h2-section {
+  margin-bottom: 88px;
+}
+
+.section-skills .professional-skills,
+.section-skills .additional-skills {
+  padding: 0 30px 30px;
+}
+
+.additional-skills {
+  margin: 0 15px;
+}
+
+.stack-skills {
+  max-width: 470px;
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill {
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 6px;
+  border: 2px solid #0487cc;
+}
+
+@media (max-width: 425px) {
+  .stack-skills {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.section-skills .title-skills {
+  text-align: center;
+}
+
+.section-skills h3 {
+  display: inline-block;
+  position: relative;
+  top: -32px;
+  padding: 18px 28px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.section-skills .skill-value {
+  position: absolute;
+  right: 45px;
+}
+
+.section-skills .other .skill {
+  padding-bottom: 6px;
+}
+
+.section-skills .other-skills i {
+  margin-right: 5px;
+}
+
+/****  5-4 - EXPERIENCE ****/
+
+.section-experience {
+  margin-bottom: 30px;
+}
+
+.section-experience .icon-experience {
+  display: inline-block;
+  margin-left: 161px;
+  padding: 8px 13px;
+}
+
+.section-experience .all-experience {
+  margin-left: 180px;
+  padding-top: 45px;
+  padding-left: 23px;
+}
+
+.section-experience .experience-content {
+  padding: 30px;
+  margin-bottom: 45px;
+}
+
+.section-experience .experience-content::before {
+  content: "";
+  position: absolute;
+  left: 191px;
+  margin-top: -13px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.section-experience .period-experience {
+  display: inline-block;
+  position: absolute;
+  left: -3px;
+  margin-top: -30px;
+  width: 174px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.section-experience .specialty-name {
+  margin-bottom: 10px;
+}
+
+.section-experience .company-name {
+  margin-bottom: 8px;
+}
+
+/****  5-5 - PORTFOLIO ****/
+
+.section-portfolio {
+  margin-bottom: 45px;
+}
+
+.section-portfolio .filter-portfolio {
+  margin-bottom: 46px;
+  text-align: center;
+}
+
+.section-portfolio .filter-portfolio li {
+  display: inline-block;
+  padding: 6px 20px;
+  margin: 0px 7px 14px;
+  cursor: pointer;
+  transition: all 0.8s;
+}
+
+.section-portfolio .filter-portfolio li:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.section-portfolio .filter-portfolio li.active {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.section-portfolio .item-portfolio {
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.8s;
+}
+
+.section-portfolio .item-portfolio p {
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.section-portfolio .item-overlay {
+  position: absolute;
+  padding: 30px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.section-portfolio .item-portfolio:hover .item-overlay {
+  opacity: 1;
+}
+
+.section-portfolio h3 {
+  position: relative;
+  bottom: 40px;
+  margin-top: 15px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.section-portfolio .item-portfolio:hover h3 {
+  bottom: 0;
+  opacity: 1;
+}
+
+.section-portfolio .item-overlay .icon-search,
+.section-portfolio .item-overlay .icon-github,
+.section-portfolio .item-overlay .icon-external {
+  position: relative;
+  display: inline-block;
+  top: 40px;
+  margin-right: 26px;
+  cursor: pointer;
+  transition: all 0.5s;
+  font-size: 22px;
+}
+
+.section-portfolio .item-portfolio:hover .icon-search,
+.section-portfolio .item-portfolio:hover .icon-github,
+.section-portfolio .item-portfolio:hover .icon-external {
+  opacity: 1;
+  top: 0;
+}
+
+.section-portfolio .item-portfolio img {
+  width: 100%;
+  transition: all 2s;
+}
+
+.section-portfolio .item-portfolio:hover img {
+  transform: scale(1.3, 1.3) rotate(5deg);
+}
